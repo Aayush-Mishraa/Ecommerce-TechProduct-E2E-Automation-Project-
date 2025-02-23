@@ -70,7 +70,7 @@ public class LoginPage {
 	 * @param pwd      the password to log in with
 	 * @return a new instance of the HomePage class
 	 */
-	@Step("Login with username: {0} and passwored:{1}")
+	@Step("Login with username : {0} and passwored :{1}")
 	public HomePage doLogin(String username, String pwd) {
 		System.out.println("App credentials are: ==>" + username + ":" + pwd);
 		

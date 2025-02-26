@@ -1,4 +1,4 @@
-package com.qa.opencart.test;
+package com.qa.opencart.tests;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class HomePageTest extends BaseTest {
 
 	@BeforeClass
 	public void homePageSetup() {
-		homePage = loginePage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
+		homePage = loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
 	}
 
 	@Test

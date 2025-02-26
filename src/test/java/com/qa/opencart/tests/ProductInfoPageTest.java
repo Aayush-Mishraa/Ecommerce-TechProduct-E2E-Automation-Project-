@@ -1,4 +1,4 @@
-package com.qa.opencart.test;
+package com.qa.opencart.tests;
 
 import java.util.Map;
 
@@ -17,7 +17,7 @@ public class ProductInfoPageTest extends BaseTest {
 	// Setup method to perform login before the test class is executed
 	@BeforeClass
 	public void productInfoSetup() {
-		homePage = loginePage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
+		homePage = loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
 	}
 
 	// Data provider for product data

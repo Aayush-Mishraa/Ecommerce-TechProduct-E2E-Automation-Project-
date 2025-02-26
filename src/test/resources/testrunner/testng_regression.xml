@@ -22,7 +22,7 @@
 		</classes>
 	</test>
 
-<!-- 
+
 	<test name="Home Page Test">
 	<parameter name="browser" value="edge"></parameter>
 		<classes>
@@ -36,6 +36,6 @@
 		<classes>
 			<class name="com.qa.opencart.test.ProductInfoPageTest" />
 		</classes>
-	</test> -->
+	</test>
 
 </suite>	

@@ -20,6 +20,8 @@ import org.openqa.selenium.safari.SafariDriver;
 import com.qa.opencart.constants.AppConstants;
 import com.qa.opencart.exception.FrameworkException;
 
+import io.qameta.allure.Step;
+
 public class DriverFactory {
 
 	WebDriver driver;
@@ -28,16 +30,16 @@ public class DriverFactory {
 	public static String highlight;
 
 	public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<WebDriver>();
-    private static final Logger log = LogManager.getLogger(DriverFactory.class);
+	private static final Logger log = LogManager.getLogger(DriverFactory.class);
 
+	@Step("init the driver using properties : {0}")
 	public WebDriver initDriver(Properties prop) {
 
 		String browserName = prop.getProperty("browser");
-//		System.out.println("browser name is :" + browserName);
-		log.info("browser name is :" + browserName); //this is fater then the system out print ln method to print 
+		// System.out.println("browser name is :" + browserName);
+		log.info("browser name is : " + browserName);
 
 		highlight = prop.getProperty("highlight");
-
 		optionsManager = new OptionsManager(prop);
 
 		switch (browserName.trim().toLowerCase()) {
@@ -58,9 +60,8 @@ public class DriverFactory {
 			// driver = new SafariDriver();
 			break;
 		default:
-//			System.out.println("plz pass the valid browser name.." + browserName);
+			// System.out.println("plz pass the valid browser name.." + browserName);
 			log.error("plz pass the valid browser name.." + browserName);
-			
 			throw new FrameworkException("===invalid browser name===");
 		}
 
@@ -89,13 +90,14 @@ public class DriverFactory {
 	// mvn clean install
 	public Properties initProp() {
 		String envName = System.getProperty("env");
-		System.out.println("running test suite on env: " + envName);
+		// System.out.println("running test suite on env: " + envName);
+		log.info("running test suite on env: " + envName);
 		FileInputStream ip = null;
 		prop = new Properties();
-		
+
 		try {
 			if (envName == null) {
-//				System.out.println("no env is passed, hence running test suite on qa env..");
+				// System.out.println("no env is passed, hence running test suite on qa env..");
 				log.warn("no env is passed, hence running test suite on qa env..");
 				ip = new FileInputStream(AppConstants.CONFIG_QA_PROP_FILE_PATH);
 			} else {
@@ -117,8 +119,8 @@ public class DriverFactory {
 					break;
 
 				default:
-//					System.out.println("plz pass the right env name..."+ envName);
-					log.warn("plz pass the right env name..."+ envName);
+					// System.out.println("plz pass the right env name..."+ envName);
+					log.error("plz pass the right env name..." + envName);
 					throw new FrameworkException("===INVALID ENV===");
 				}
 			}
@@ -134,17 +136,16 @@ public class DriverFactory {
 
 		return prop;
 	}
-	
-	
+
 	/**
 	 * takescreenshot
 	 */
-	
+
 	public static String getScreenshot() {
 		File srcFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);// temp dir
-		String path = System.getProperty("user.dir") + "/screenshot/"  + "_" + System.currentTimeMillis()+ ".png";		
+		String path = System.getProperty("user.dir") + "/screenshot/" + "_" + System.currentTimeMillis() + ".png";
 		File destination = new File(path);
-		
+
 		try {
 			FileHandler.copy(srcFile, destination);
 		} catch (IOException e) {
@@ -153,27 +154,20 @@ public class DriverFactory {
 
 		return path;
 	}
-	
+
 	public static File getScreenshotFile() {
 		File srcFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);// temp dir
 		return srcFile;
 	}
-	
+
 	public static byte[] getScreenshotByte() {
 		return ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);// temp dir
-		
+
 	}
-	
+
 	public static String getScreenshotBase64() {
 		return ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BASE64);// temp dir
-		
+
 	}
-	
-	
-	
-	
 
 }
-
-
-

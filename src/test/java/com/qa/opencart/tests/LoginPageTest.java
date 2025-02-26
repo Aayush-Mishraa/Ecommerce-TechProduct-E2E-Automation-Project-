@@ -1,4 +1,4 @@
-package com.qa.opencart.test;
+package com.qa.opencart.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -29,7 +29,7 @@ public class LoginPageTest extends BaseTest {
 	@Test
 	public void loginPageTitleTest() {
 		ChainTestListener.log("Verify loging page Title ");
-		String actTitle = loginePage.getLoginPageTitle();
+		String actTitle = loginPage.getLoginPageTitle();
 		Assert.assertEquals(actTitle, AppConstants.LOGIN_PAGE_TITILE, AppError.TITILE_NOT_FOUND_ERROR);
 	}
 	
@@ -40,7 +40,7 @@ public class LoginPageTest extends BaseTest {
 
 	@Test
 	public void loginPageURLTest() {
-		String actURL = loginePage.getLoginPageURL();
+		String actURL = loginPage.getLoginPageURL();
 		Assert.assertTrue(actURL.contains(AppConstants.LOGIN_PAGE_URL_FRACTION), AppError.URL_NOT_FOUND_ERROR);
 	}
 	@Description("Checking Forgot Password LInk....")
@@ -48,7 +48,7 @@ public class LoginPageTest extends BaseTest {
 
 	@Test
 	public void forgetPwdLinkExitsTest() {
-		Assert.assertTrue(loginePage.isForgotPwdLinkExits(), AppError.ELEMENT_NOT_FOUND_ERROR);
+		Assert.assertTrue(loginPage.isForgotPwdLinkExits(), AppError.ELEMENT_NOT_FOUND_ERROR);
 	}
 
 	@Description("Checking user is able to login with the right cradential or not....")
@@ -57,7 +57,7 @@ public class LoginPageTest extends BaseTest {
 	public void loginTest() {
 		// when ever we calling any page we have to return next landing page object
 
-		homePage = loginePage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
+		homePage = loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
 		Assert.assertEquals(homePage.getHomePageTitle(), AppConstants.HOME_PAGE_TITILE,
 				AppError.TITILE_NOT_FOUND_ERROR);
 	}

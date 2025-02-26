@@ -45,12 +45,12 @@ public class OptionsManager {
 		if (Boolean.parseBoolean(prop.getProperty("headless"))) {
 //			System.out.println("==Running in Headless Mode==");
 			log.info("==Running in Headless Mode==");
-			co.addArguments("--headless");
+			fo.addArguments("--headless");
 		}
 		if (Boolean.parseBoolean(prop.getProperty("icognito"))) {
 //			System.out.println("==Running in Icognito Mode==");
 			log.info("==Running in Icognito Mode==");
-			co.addArguments("--icognito");
+			fo.addArguments("--icognito");
 		}
 		return fo;
 	}
@@ -61,12 +61,12 @@ public class OptionsManager {
 		if (Boolean.parseBoolean(prop.getProperty("headless"))) {
 //			System.out.println("==Running in Headless Mode==");
 			log.info("==Running in Headless Mode==");
-			co.addArguments("--headless");
+			fo.addArguments("--headless");
 		}
 		if (Boolean.parseBoolean(prop.getProperty("icognito"))) {
 //			System.out.println("==Running in Icognito Mode==");
 			log.info("==Running in Icognito Mode==");
-			co.addArguments("--icognito");
+			fo.addArguments("--icognito");
 		}
 		return eo;
 	}

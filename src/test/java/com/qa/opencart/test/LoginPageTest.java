@@ -1,4 +1,4 @@
-package com.qa.opencart.tests;
+package com.qa.opencart.test;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;

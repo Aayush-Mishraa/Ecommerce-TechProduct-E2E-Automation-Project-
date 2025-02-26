@@ -1,4 +1,4 @@
-package com.qa.opencart.tests;
+package com.qa.opencart.test;
 
 import java.util.List;
 

@@ -38,7 +38,7 @@ public class LoginPageTest extends BaseTest {
 	@Description("Checking Login Page URL....")
 	@Severity(SeverityLevel.MINOR)
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void loginPageURLTest() {
 		String actURL = loginPage.getLoginPageURL();
 		Assert.assertTrue(actURL.contains(AppConstants.LOGIN_PAGE_URL_FRACTION), AppError.URL_NOT_FOUND_ERROR);
@@ -46,7 +46,7 @@ public class LoginPageTest extends BaseTest {
 	@Description("Checking Forgot Password LInk....")
 	@Severity(SeverityLevel.CRITICAL)
 
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void forgetPwdLinkExitsTest() {
 		Assert.assertTrue(loginPage.isForgotPwdLinkExits(), AppError.ELEMENT_NOT_FOUND_ERROR);
 	}

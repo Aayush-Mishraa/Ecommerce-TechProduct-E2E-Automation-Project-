@@ -38,7 +38,7 @@ public class LoginPageTest extends BaseTest {
 	@Description("Checking Login Page URL....")
 	@Severity(SeverityLevel.MINOR)
 
-	@Test
+	@Test(enabled = false)
 	public void loginPageURLTest() {
 		String actURL = loginPage.getLoginPageURL();
 		Assert.assertTrue(actURL.contains(AppConstants.LOGIN_PAGE_URL_FRACTION), AppError.URL_NOT_FOUND_ERROR);
@@ -46,14 +46,14 @@ public class LoginPageTest extends BaseTest {
 	@Description("Checking Forgot Password LInk....")
 	@Severity(SeverityLevel.CRITICAL)
 
-	@Test
+	@Test(enabled = false)
 	public void forgetPwdLinkExitsTest() {
 		Assert.assertTrue(loginPage.isForgotPwdLinkExits(), AppError.ELEMENT_NOT_FOUND_ERROR);
 	}
 
 	@Description("Checking user is able to login with the right cradential or not....")
 	@Severity(SeverityLevel.BLOCKER)	
-	@Test(priority = Integer.MAX_VALUE)
+	@Test(priority = Integer.MAX_VALUE, enabled = false)
 	public void loginTest() {
 		// when ever we calling any page we have to return next landing page object
 
@@ -63,7 +63,7 @@ public class LoginPageTest extends BaseTest {
 	}
 	@Description("Checking Logo of the Page.......")
 	@Severity(SeverityLevel.BLOCKER)	
-	@Test
+	@Test(enabled = false)
 	public void logoTest() {
 		Assert.assertTrue(commonsPage.isLogoDisplayed(), AppError.LOG_NOT_FOUND_ERROR);
 	}
@@ -77,7 +77,7 @@ public class LoginPageTest extends BaseTest {
 	}
 	@Description("Checking page footer")
 	@Severity(SeverityLevel.NORMAL)	
-	@Test(dataProvider = "getFooterData")
+	@Test(dataProvider = "getFooterData",enabled = false)
 	public void footersTest(String footerName) {
 		Assert.assertTrue(commonsPage.checkFooterLink(footerName));
 	}

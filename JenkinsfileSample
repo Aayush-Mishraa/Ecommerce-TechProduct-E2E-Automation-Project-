@@ -45,7 +45,6 @@ pipeline{
                 echo("deploy to stage")
             }
         }
-        
         stage("Run sanity test cases on Stage"){
             steps{
                 echo("Run sanity test cases on Stage")
@@ -56,7 +55,7 @@ pipeline{
             steps{
                 echo("deploy to PROD")
             }
-        }
+        }git 
           }
     
     

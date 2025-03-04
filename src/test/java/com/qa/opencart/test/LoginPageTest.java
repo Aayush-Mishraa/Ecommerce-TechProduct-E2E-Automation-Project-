@@ -63,7 +63,7 @@ public class LoginPageTest extends BaseTest {
 	}
 	@Description("Checking Logo of the Page.......")
 	@Severity(SeverityLevel.BLOCKER)	
-	@Test(enabled = false)
+	@Test(enabled = true)
 	public void logoTest() {
 		Assert.assertTrue(commonsPage.isLogoDisplayed(), AppError.LOG_NOT_FOUND_ERROR);
 	}
@@ -77,7 +77,7 @@ public class LoginPageTest extends BaseTest {
 	}
 	@Description("Checking page footer")
 	@Severity(SeverityLevel.NORMAL)	
-	@Test(dataProvider = "getFooterData",enabled = false)
+	@Test(dataProvider = "getFooterData",enabled = true)
 	public void footersTest(String footerName) {
 		Assert.assertTrue(commonsPage.checkFooterLink(footerName));
 	}

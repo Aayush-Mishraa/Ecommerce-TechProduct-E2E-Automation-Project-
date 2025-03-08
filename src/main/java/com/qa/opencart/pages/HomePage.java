@@ -24,7 +24,7 @@ public class HomePage {
 		this.driver = driver;
 		eleUtil = new ElementUtil(driver);
 	}
-
+//testing
 	private By logoutLink = By.linkText("Logout");
 	private By headers = By.cssSelector("div#content > h2");
 	private By search = By.name("search");
